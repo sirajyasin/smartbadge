@@ -1,0 +1,98 @@
+{
+  "_args": [
+    [
+      "cordova-plugin-tabrisjs-qrgen",
+      "/home/ecn/phonegap/Emedallion"
+    ]
+  ],
+  "_from": "cordova-plugin-tabrisjs-qrgen@latest",
+  "_id": "cordova-plugin-tabrisjs-qrgen@1.0.8",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/cordova-plugin-tabrisjs-qrgen",
+  "_nodeVersion": "8.11.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-tabrisjs-qrgen_1.0.8_1528559794573_0.5768109377814521"
+  },
+  "_npmUser": {
+    "email": "buyutjokorivai@gmail.com",
+    "name": "jokorivai"
+  },
+  "_npmVersion": "5.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "cordova-plugin-tabrisjs-qrgen",
+    "raw": "cordova-plugin-tabrisjs-qrgen",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-tabrisjs-qrgen/-/cordova-plugin-tabrisjs-qrgen-1.0.8.tgz",
+  "_shasum": "767aaabd28fa1db257d2db1c8433e61edf05aebd",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-tabrisjs-qrgen",
+  "_where": "/home/ecn/phonegap/Emedallion",
+  "author": {
+    "email": "buyutjokorivai@gmail.com",
+    "name": "Joko Rivai",
+    "url": "https://github.com/jokorivai"
+  },
+  "bugs": {
+    "url": "https://github.com/jokorivai/cordova-plugin-tabrisjs-qrgen/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-tabrisjs-qrgen",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "This plugin allows you to generate QR Code within TabrisJS apps using plain javascript. Only for TabrisJS apps. Supported on Android and iOS (as platforms supported by TabrisJS).",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "fileCount": 8,
+    "integrity": "sha512-dnHS4H8DPkkrpWr5/viduDn/IQBzdf7CzFS4tQoaV/KFk8eDz5FF2OD80bgAwUGQe7iMUPl7cBoI5rfd7zjHuA==",
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbG/izCRA9TVsSAnZWagAAXJ8P/0gag+KaAAn1Q7xe3M3R\n9CgURoGU1quZzNcenGrL0tdMIOyh+c816VvRE5cFYiLaSMHk08gA9XJ154S5\nt1hiRtURFENyNYTzMtCueQyHzN82DeOJgxD37Lumm+12RRAA+ES4LpkceG//\nYGob6Fxx7tgVtugyedCa3tMm2tlJzcqZWhJL6E0CBuW1xapqx8vzkkzMiTJe\n44MQjCeOSluPPYfYM5lqUrHZdGjXq3nXxOgfekEwc3+AXsxnA5crJZ+BuOxj\nYFDe5BbRaBz+q2y+giKszmqKXneGijz1/a1Hv4HHu8QyOe3Cw3Ri64e7RfsY\nciUiv3e2skuB+DJwWfsrDevYhHWM20y1+aSQm8bv09S3JIkF2K0Xes3EyziZ\nZ4GBMY4VbVblQ0RZOnB34CpOwAyjGZ/ViXmC1WFi+yw8wu30XINdCG5cYmkr\nYZ3I5Z5mOjieKvEc5hiZK1gMRJmqEpcvv2ewAtBrMyzhdwMBFtX6zKxSweKW\nOi9FlPchIcJrnRlRds7tNBU/h8wedFN0NSnsk2eCZIsU5WiTIzZkBdbD2PJt\nuP6dvaCYFP+t/cCcheeuM2x7tbeTG7FYenKOfNwXbYT84pZsD984GAfeIc7V\nVEvDNkF+2rBBePNjenpIIw0ZEZkfAdWKYcOyg1XbjUIt3+FornmHQtFRsx1Z\nGnBG\r\n=pTQ8\r\n-----END PGP SIGNATURE-----\r\n",
+    "shasum": "767aaabd28fa1db257d2db1c8433e61edf05aebd",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-tabrisjs-qrgen/-/cordova-plugin-tabrisjs-qrgen-1.0.8.tgz",
+    "unpackedSize": 160660
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "gitHead": "1ddfdcbdaa7160a9868c5fea452f1b44c85b77aa",
+  "homepage": "https://github.com/jokorivai/cordova-plugin-tabrisjs-qrgen",
+  "keywords": [
+    "Generator",
+    "QRCode",
+    "TabrisJS",
+    "cordova-android",
+    "cordova-ios",
+    "ecosystem:cordova"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "jokorivai",
+      "email": "buyutjokorivai@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-tabrisjs-qrgen",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jokorivai/cordova-plugin-tabrisjs-qrgen.git"
+  },
+  "version": "1.0.8"
+}

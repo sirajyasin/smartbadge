@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-tabrisjs-qrgen"
+        version="1.0.8">
+
+  <name>Cordova Plugin TabrisJS QRCode Generator</name>
+
+  <description>
+    This plugin allows you to generate QR Code within TabrisJS apps using plain javascript. Only for TabrisJS apps. Supported on Android and iOS (as platforms supported by TabrisJS).
+  </description>
+
+  <author>Joko Rivai</author>
+
+  <license>MIT</license>
+
+  <keywords>TabrisJS, QRCode, Generator</keywords>
+
+  <repo>https://github.com/jokorivai/cordova-plugin-tabrisjs-qrgen.git</repo>
+
+  <issue>https://github.com/jokorivai/cordova-plugin-tabrisjs-qrgen/issues</issue>
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+  </engines>
+
+  <js-module src="www/tabrisjsqrcode.js" name="TabrisJSQRCodeGenerator">
+    <clobbers target="window.tabrisJsPlugins.qrCode" />
+  </js-module>
+  
+</plugin>
