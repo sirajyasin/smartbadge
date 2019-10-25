@@ -4,7 +4,7 @@
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
         <title>E-Madallion</title>
     </head>
     <body>
@@ -13,10 +13,14 @@
 	</div>
         <div class="container">
 	  <div class="smenu col-lg-6 btn btn-success"><a class="menu" href="#"><i class="fa fa-fw fa-user"></i>  e-Business Card</a></div>
-	  <div class='usr_info_msg'>Scan this QR code for User Info</div>
+	  <div class='usr_info_msg col-lg-6'>Scan this QR code for User Info</div>
 	  <div id='qrcode'></div>
           <div class="col"><hr></div>
-          <div id="usr_info"></div>
+          <div id="usr_info">
+	    <div id="usr_name" class='ecard_txt'></div>
+	    <div id="email" class='ecard_txt'></div>
+	    <div id="contact" class='ecard_txt'></div>
+	  </div>
 	  <div class="smenu col-lg-6 btn btn-success"><a class="menu" href="index.html"><i class="fa fa-fw fa-home"></i>  Home</a></div>
         </div>
         <div class="page_footer">
@@ -50,7 +54,9 @@
              correctLevel : QRCode.CorrectLevel.H
           });
 
-          $('#usr_info').html(JSON.stringify(user_profile['efgjkmp'], null, "<br>"))
+          $('#usr_name').html(user_profile['efgjkmp']['first_name'] + ' ' + user_profile['efgjkmp']['last_name'])
+          $('#email').html(user_profile['efgjkmp']['email'] )
+          $('#contact').html(user_profile['efgjkmp']['contact_no'])
 
 	</script>
     </body>
