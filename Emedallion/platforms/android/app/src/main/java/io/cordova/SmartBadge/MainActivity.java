@@ -17,7 +17,7 @@
        under the License.
  */
 
-package io.cordova.Emedallion;
+package io.cordova.SmartBadge;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

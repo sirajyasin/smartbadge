@@ -6,7 +6,8 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
+    /*background-color:#E4E4E4;*/
+    background-color:#dfdfdf !important;
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
     font-size:12px;
@@ -82,7 +83,7 @@ h1 {
     background-color: cornflowerblue;
 }
 .footer {
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     height: 50px;
@@ -122,6 +123,11 @@ div.rmenu {
   text-align: center;
 }
 
+#qrcode img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .qr_msg {
    text-align:center;
 }
@@ -142,3 +148,19 @@ div.smenu {
   text-align: left;
 }
 
+div.usr_info_msg {
+  madding: 1em;
+  text-align: center;
+  font-size: 1.2em;
+  color: purple;
+}
+
+#usr_info {
+  font-size: .8em;
+}
+
+.ecard_txt {
+   color: purple;
+   font-size: 1.2em;
+   text-align: center;
+}

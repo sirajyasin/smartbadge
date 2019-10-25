@@ -123,6 +123,11 @@ div.rmenu {
   text-align: center;
 }
 
+#qrcode img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .qr_msg {
    text-align:center;
 }

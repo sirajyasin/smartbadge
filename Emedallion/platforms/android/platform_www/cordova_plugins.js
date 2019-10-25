@@ -19,7 +19,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
   ];
   module.exports.metadata = {
     "cordova-plugin-android-fingerprint-auth": "1.5.0",
-    "cordova-plugin-whitelist": "1.3.4",
-    "cordova-plugin-tabrisjs-qrgen": "1.0.8"
+    "cordova-plugin-tabrisjs-qrgen": "1.0.8",
+    "cordova-plugin-whitelist": "1.3.4"
   };
 });
