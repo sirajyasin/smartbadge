@@ -15,6 +15,9 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.cordova.SmartBadge"
+    },
+    "cordova-plugin-qrscanner": {
+      "PACKAGE_NAME": "io.cordova.SmartBadge"
     }
   },
   "dependent_plugins": {}

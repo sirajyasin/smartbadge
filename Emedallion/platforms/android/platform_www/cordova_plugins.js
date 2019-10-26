@@ -15,11 +15,20 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.tabrisJsPlugins.qrCode"
       ]
+    },
+    {
+      "id": "cordova-plugin-qrscanner.QRScanner",
+      "file": "plugins/cordova-plugin-qrscanner/www/www.min.js",
+      "pluginId": "cordova-plugin-qrscanner",
+      "clobbers": [
+        "QRScanner"
+      ]
     }
   ];
   module.exports.metadata = {
     "cordova-plugin-android-fingerprint-auth": "1.5.0",
     "cordova-plugin-tabrisjs-qrgen": "1.0.8",
-    "cordova-plugin-whitelist": "1.3.4"
+    "cordova-plugin-whitelist": "1.3.4",
+    "cordova-plugin-qrscanner": "3.0.1"
   };
 });
