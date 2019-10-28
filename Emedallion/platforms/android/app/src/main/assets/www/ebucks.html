@@ -67,6 +67,7 @@
 		  alert('authorized');
                   // window.QRScanner.show();
                   window.QRScanner.show(function(status){
+		      alert('Trying to show scanner')
                       window.QRScanner.scan(displayContents);
                   });
                   // window.QRScanner.scan(displayContents);
@@ -83,6 +84,7 @@
            }
 
            function displayContents(err, text){
+              alert('in displayContents');
               if(err){
 		  alert('some error in displayContent');
                   // an error occurred, or the scan was canceled (error code `6`)
