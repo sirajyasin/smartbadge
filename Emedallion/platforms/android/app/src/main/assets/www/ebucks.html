@@ -58,16 +58,20 @@
            function onDone(err, status){
               if (err) {
                   // here we can handle errors and clean up any loose ends.
+		      
                   console.error(err);
+		  alert(err);
               }
               if (status.authorized) {
           
+		  alert('authorized');
                   // window.QRScanner.show();
                   window.QRScanner.show(function(status){
                       window.QRScanner.scan(displayContents);
                   });
                   // window.QRScanner.scan(displayContents);
               } else if (status.denied) {
+		  alert('denied')
                   // The video preview will remain black, and scanning is disabled. We can
                   // try to ask the user to change their mind, but we'll have to send them
                   // to their device settings with `QRScanner.openSettings()`.
@@ -80,11 +84,12 @@
 
            function displayContents(err, text){
               if(err){
+		  alert('some error in displayContent');
                   // an error occurred, or the scan was canceled (error code `6`)
               } else {
                   // The scan completed, display the contents of the QR code:
-                  // alert(text);
-                  $('claim_code').setAttribute('value', text);
+                  alert(text);
+                  $('#claim_code').setAttribute('value', text);
                   window.QRScanner.hide(function(status){
                       document.getElementsByTagName("BODY")[0].setAttribute('style','background-color: transparent');
                   });
