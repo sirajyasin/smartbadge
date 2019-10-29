@@ -10,13 +10,10 @@
     "cordova-plugin-android-fingerprint-auth": {
       "PACKAGE_NAME": "io.cordova.SmartBadge"
     },
-    "cordova-plugin-tabrisjs-qrgen": {
-      "PACKAGE_NAME": "io.cordova.SmartBadge"
-    },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.cordova.SmartBadge"
     },
-    "cordova-plugin-qrscanner": {
+    "phonegap-plugin-barcodescanner": {
       "PACKAGE_NAME": "io.cordova.SmartBadge"
     }
   },

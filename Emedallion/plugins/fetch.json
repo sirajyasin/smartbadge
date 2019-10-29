@@ -15,18 +15,10 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-tabrisjs-qrgen": {
+  "phonegap-plugin-barcodescanner": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-tabrisjs-qrgen"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-qrscanner": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-qrscanner"
+      "id": "https://github.com/wildabeast/BarcodeScanner.git"
     },
     "is_top_level": true,
     "variables": {}

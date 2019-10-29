@@ -9,7 +9,7 @@
     </head>
     <body>
 	<div class="page_header">
-            <div class="head col-lg-12 btn btn-primary"><a class="menu" href="index.html"><i class="fa fa-fw fa-home"></i></a>   E-Medallion</div>
+            <div class="head col-lg-12 btn btn-primary"><a class="menu home" href="index.html"><i class="fa fa-fw fa-home"></i></a>   E-Medallion</div>
 	</div>
         <div class="container">
 	  <div class="smenu col-lg-12 btn btn-success"><a class="menu" href="#"><i class="fa fa-fw fa-user"></i>  e-Business Card</a></div>
@@ -18,6 +18,7 @@
           <div class="col"><hr></div>
           <div id="usr_info">
 	    <div id="usr_name" class='ecard_txt'></div>
+	    <div id="role" class='ecard_txt'></div>
 	    <div id="email" class='ecard_txt'></div>
 	    <div id="contact" class='ecard_txt'></div>
 	  </div>
@@ -38,25 +39,31 @@
 	<script>
 	  user_profile= {
              'efgjkmp' : {
-		    'first_name': 'Sirajudeen',
-                    'last_name': 'Yasin',
-		     'id': 'EGIL21784',
-		     'email': 'sirajudeen@ericsson.com',
-		     'unit': 'Cloud NFVi',
-		     'reporting_manager': 'Vikas Srivastava',
-		     'contact_no' : '+14694033848',
+		    'FirstName': 'Sirajudeen',
+                    'LastName': 'Yasin',
+		    'SIGNUM': 'EGIL21784',
+		    'Email': 'sirajudeen@ericsson.com',
+		    'Role': 'Solution Architect',
+		    'Unit': 'Cloud NFVi',
+		    'Phone' : '+14694033848',
 	     }
 	  }
+          var userInfo = user_profile['efgjkmp']['FirstName'] + ' ' + user_profile['efgjkmp']['LastName'] + "\n" +
+	                 user_profile['efgjkmp']['SIGNUM'] + "\n" +
+	                 user_profile['efgjkmp']['Role'] + "\n" +
+	                 user_profile['efgjkmp']['Email'] + "\n" +
+	                 user_profile['efgjkmp']['Phone'];
           var qrcode = new QRCode(document.getElementById("qrcode"), {
-             text: JSON.stringify(user_profile['efgjkmp']),
+             text: userInfo,
              colorDark : "#000000",
              colorLight : "#ffffff",
              correctLevel : QRCode.CorrectLevel.H
           });
 
-          $('#usr_name').html(user_profile['efgjkmp']['first_name'] + ' ' + user_profile['efgjkmp']['last_name'])
-          $('#email').html(user_profile['efgjkmp']['email'] )
-          $('#contact').html(user_profile['efgjkmp']['contact_no'])
+          $('#usr_name').html(user_profile['efgjkmp']['FirstName'] + ' ' + user_profile['efgjkmp']['LastName'])
+          $('#role').html(user_profile['efgjkmp']['Role'] )
+          $('#email').html(user_profile['efgjkmp']['Email'] )
+          $('#contact').html(user_profile['efgjkmp']['Phone'])
 
 	</script>
     </body>

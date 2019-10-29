@@ -1,85 +1,21 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <meta name="msapplication-tap-highlight" content="no">
-	<meta http-equiv="refresh" content="300"/>
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="css/all.css">
-        <title>E-Madallion</title>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
     </head>
+
     <body>
-      <div id="deviceready" class="blink">
-         <p class="event listening">Connecting to Device</p>
-         <p class="event received">Device is Ready</p>
-      </div>
-      <div class="blink">
-         <form>
-             <input type="text" id="qrAddress" style="display: none" />
-         </form>
-      </div>
-      <div class="blink">
-         <a id="scan">QR Scan</a>
-      </div>
-     
-      <script type="text/javascript" src="js/jquery.js"></script>
-      <script type="text/javascript" src="cordova.js"></script>
-      <script type="text/javascript" src="js/index.js"></script>
-      <script type="text/javascript" src="js/qrcode.min.js"></script>
-      <script>
-      document.querySelector("#scan").addEventListener("touchend", function() {
-         window.QRScanner.prepare(onDone);
-     
-      });
 
-function onDone(err, status){
-    if (err) {
-        // here we can handle errors and clean up any loose ends.
-        console.error(err);
-    }
-    if (status.authorized) {
-        // W00t, you have camera access and the scanner is initialized.
-        // QRscanner.show() should feel very fast.
-        var elements = document.getElementsByClassName('blink')
+    <p>
+    <button id="startScan">Start Scan</button>
+    </p>
 
-        for (var i = 0; i < elements.length; i++){
-            elements[i].style.display = 'none';
-        }
-        // window.QRScanner.show();
-        window.QRScanner.show(function(status){
-            window.QRScanner.scan(displayContents);
-        });
-        // window.QRScanner.scan(displayContents);
-    } else if (status.denied) {
-        // The video preview will remain black, and scanning is disabled. We can
-        // try to ask the user to change their mind, but we'll have to send them
-        // to their device settings with `QRScanner.openSettings()`.
-    } else {
-        // we didn't get permission, but we didn't get permanently denied. (On
-        // Android, a denial isn't permanent unless the user checks the "Don't
-        // ask again" box.) We can ask again at the next relevant opportunity.
-    }
-}
+    <div id="results"></div>
 
-function displayContents(err, text){
-    if(err){
-        // an error occurred, or the scan was canceled (error code `6`)
-    } else {
-        // The scan completed, display the contents of the QR code:
-        // alert(text);
-        document.getElementById('qrAddress').setAttribute('value', text);
-        document.getElementById('qrAddress').style.display = 'block';
-        window.QRScanner.hide(function(status){
-            var elements = document.getElementsByClassName('blink');
-
-            for (var i = 0; i < elements.length; i++){
-                elements[i].style.display = 'block';
-            }
-            document.getElementsByTagName("BODY")[0].setAttribute('style','background-color: transparent !important');
-        });
-    }
-}
-
-	</script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
     </body>
 </html>
