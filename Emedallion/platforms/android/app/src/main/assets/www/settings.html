@@ -93,7 +93,7 @@
         <script type="text/javascript" src="js/index.js"></script>
 	<script>
 	  $(window).load(function(){        
-            var user_info = localStorage.getItem('user_info')
+            var user_info = window.localStorage.getItem('user_info')
             if ( user_info != null ) {
    	       $('#name')[0].value = user_info['Name'];
    	       $('#email')[0].value = user_info['Email'];
@@ -114,7 +114,9 @@
 	          'EmployeeID': $('#empid')[0].value,
 	          'Role': $('#role')[0].value
 	      }
-              localStorage.setItem('user_info', user_info);
+	      alert(user_info)
+	      alert('Save info to local storage')
+              window.localStorage.setItem('user_info', user_info);
 
 
 	  })
