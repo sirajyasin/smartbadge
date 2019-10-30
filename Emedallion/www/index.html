@@ -44,5 +44,15 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+	<script>
+	   var storage = window.localStorage;
+           var user_info = storage.getItem('user_info');
+           if(user_info == null) {
+               alert('Please update your details in User Profile');
+	       window.location = "settings.html"
+	   }
+ 
+
+	</script>
     </body>
 </html>
