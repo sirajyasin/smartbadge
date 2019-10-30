@@ -93,30 +93,26 @@
         <script type="text/javascript" src="js/index.js"></script>
 	<script>
 	  $(window).load(function(){        
-            var user_info = window.localStorage.getItem('user_info')
-            if ( user_info != null ) {
-   	       $('#name')[0].value = user_info['Name'];
-   	       $('#email')[0].value = user_info['Email'];
-   	       $('#phone')[0].value = user_info['Phone'];
-   	       $('#signum')[0].value = user_info['Signum'];
-   	       $('#role')[0].value = user_info['Role'];
-   	       $('#empid')[0].value = user_info['EmployeeID'];
+            var signum = window.localStorage.getItem('Signum');
+            if ( signum != null ) {
+   	       $('#name')[0].value = window.localStorage.getItem('Name');
+   	       $('#email')[0].value = window.localStorage.getItem('Email');
+   	       $('#phone')[0].value = window.localStorage.getItem('Phone');
+   	       $('#signum')[0].value = window.localStorage.getItem('Signum');
+   	       $('#role')[0].value = window.localStorage.getItem('Role');
+   	       $('#empid')[0].value = window.localStorage.getItem('EmployeeID');
 	    }
           }); 
 
 	  $('#save').click(function(e) {
 	      e.preventDefault();
-   	      var user_info = {
-	          'Name': $('#name')[0].value,
-	          'Email': $('#email')[0].value,
-	          'Phone': $('#phone')[0].value,
-	          'Signum': $('#signum')[0].value,
-	          'EmployeeID': $('#empid')[0].value,
-	          'Role': $('#role')[0].value
-	      }
-	      alert(user_info)
 	      alert('Save info to local storage')
-              window.localStorage.setItem('user_info', user_info);
+              window.localStorage.setItem('Name', $('#name')[0].value);
+              window.localStorage.setItem('Email',  $('#email')[0].value);
+              window.localStorage.setItem('Phone',  $('#phone')[0].value);
+              window.localStorage.setItem('Signum',  $('#signum')[0].value);
+              window.localStorage.setItem('EmployeeID',  $('#empid')[0].value);
+              window.localStorage.setItem('Role',  $('#role')[0].value);
 
 
 	  })
