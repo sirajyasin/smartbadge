@@ -105,16 +105,14 @@
           }); 
 
 	  $('#save').click(function(e) {
-	      e.preventDefault();
-	      alert('Save info to local storage')
+	      alert('Save info to local storage');
               window.localStorage.setItem('Name', $('#name')[0].value);
               window.localStorage.setItem('Email',  $('#email')[0].value);
               window.localStorage.setItem('Phone',  $('#phone')[0].value);
               window.localStorage.setItem('Signum',  $('#signum')[0].value);
               window.localStorage.setItem('EmployeeID',  $('#empid')[0].value);
               window.localStorage.setItem('Role',  $('#role')[0].value);
-
-
+	      e.preventDefault();
 	  })
 	</script>
     </body>
