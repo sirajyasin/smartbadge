@@ -76,7 +76,6 @@ h1 {
   margin: .5em;
   width: 45%;
   cursor: pointer; 
-  border-radius: 5px !important;
 }
 
 .site_color1 {
@@ -196,4 +195,49 @@ a {
 
 .home {
   float: left;
+}
+
+.photo {
+   width: 10em;
+   height: 10em;
+   margin: auto;
+   background-color: #efefef;
+   border-radius: 2em;
+}
+
+#take_pic {
+  margin: auto;
+}
+
+#smallImage {
+  border-radius: 2em;
+}
+
+#profile_pic {
+  border-radius: 2em;
+}
+
+#settings_view {
+  width: 100%;
+  background-color: #ffffff;
+  margin: 1em;
+  border-radius: 1em;
+}
+.logo {
+  width: 3em;
+  height: 3em;
+  float: left !important;
+}
+#profile_header {
+}
+
+#name_view {
+ font-size: 1.8em;
+ margin: 0.3em;
+ color: darkblue; 
+}
+
+#empid_view, #role_view, #company_view, #signum_view {
+ font-size: 1.3em;
+ margin: 0.3em;
 }

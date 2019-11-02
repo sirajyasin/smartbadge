@@ -13,10 +13,20 @@
 	</div>
         <div class="container">
 	  <div class="row">
+		  <div id='settings_edit'>
 <form class="form-horizontal" method="post" action="#">
 						
 	<div class="form-group">
-		<label for="name" class="cols-lg-6 control-label">Your Name</label>
+	  <label for="photo" class="cols-lg-8 control-label">Your Photo</label>
+	  <div id='photo' class='form-group photo'>
+                  <img style="display:none;width:100%;height:100%;" id="smallImage" src="" />
+                  <img style="display:none;" id="largeImage" src="" />
+	  </div>
+	  <div id='take_pic' class="smenu col-lg-12 btn btn-success">Take Photo</div>
+	</div>
+
+	<div class="form-group">
+		<label for="name" class="cols-lg-8 control-label">Your Name</label>
 		<div class="cols-sm-10">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -26,7 +36,7 @@
 	</div>
 
 	<div class="form-group">
-		<label for="email" class="cols-lg-6 control-label">Your Email</label>
+		<label for="email" class="cols-lg-8 control-label">Your Email</label>
 		<div class="cols-sm-10">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
@@ -37,7 +47,7 @@
 
 
 	<div class="form-group">
-		<label for="phone" class="cols-lg-6 control-label">Your Phone</label>
+		<label for="phone" class="cols-lg-8 control-label">Your Phone</label>
 		<div class="cols-sm-10">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
@@ -47,7 +57,7 @@
 	</div>
 
 	<div class="form-group">
-		<label for="emp_id" class="cols-lg-6 control-label">Your Employee Id</label>
+		<label for="emp_id" class="cols-lg-8 control-label">Your Employee Id</label>
 		<div class="cols-sm-10">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-id-badge fa" aria-hidden="true"></i></span>
@@ -56,7 +66,7 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="emp_id" class="cols-lg-6 control-label">Your Signum</label>
+		<label for="emp_id" class="cols-lg-8 control-label">Your Signum</label>
 		<div class="cols-sm-10">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-id-badge fa" aria-hidden="true"></i></span>
@@ -65,7 +75,7 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="role" class="cols-lg-6 control-label">Your Role</label>
+		<label for="role" class="cols-lg-8 control-label">Your Role</label>
 		<div class="cols-sm-10">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-user-tag fa" aria-hidden="true"></i></span>
@@ -74,9 +84,21 @@
 		</div>
 	</div>
 
-	<button id='save' class="btn btn-success">Save</button>
+	<button id='save' class="smenu col-lg-12 btn btn-success">Save</button>
 	
- </form>
+</form>
+</div>
+<div id='settings_view'>
+     <button id='profile_header' class="col-lg-12 btn btn-default"><img class="logo" src="img/ecn_logo.png" /></button>
+     <div class='photo'><img id="profile_pic" class='photo' src="" /></div>
+     <div id='name_view'></div>
+     <div id='empid_view'></div>
+     <div id='signum_view'></div>
+     <div id='role_view'></div>
+     <div id='company_view'> ERICSSON INC</div>
+     <button id='edit' class="smenu col-lg-12 btn btn-warning">Edit</button>
+
+</div>	
 		  
 	  </div>
         </div>
@@ -89,11 +111,12 @@
 	</div>-->
 
         <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="cordova.js"></
+	<script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-	<script>
+        <script type="text/javascript" src="js/settings.js"></script>
+        <script type="text/javascript" charset="utf-8">
+
 	  $(document).ready(function(){        
-	    console.log(window.localStorage)
             var signum = window.localStorage.getItem('Signum');
             if ( signum != null ) {
    	       $('#name')[0].value = window.localStorage.getItem('Name');
@@ -102,18 +125,46 @@
    	       $('#signum')[0].value = window.localStorage.getItem('Signum');
    	       $('#role')[0].value = window.localStorage.getItem('Role');
    	       $('#empid')[0].value = window.localStorage.getItem('EmployeeID');
+   	       $('#name_view').html(window.localStorage.getItem('Name'));
+   	       $('#empid_view').html(window.localStorage.getItem('EmployeeID'));
+   	       $('#signum_view').html(window.localStorage.getItem('Signum'));
+   	       $('#role_view').html(window.localStorage.getItem('Role'));
 	    }
+            var pic =  window.localStorage.getItem('pic');
+
+	    if ( pic != null ) {
+               var smallImage = document.getElementById('smallImage');
+               var profile_pic = document.getElementById('profile_pic');
+               smallImage.style.display = 'block';
+               smallImage.src = pic;
+               profile_pic.src = pic;
+	    }
+	    if ( signum != null) {
+                $('#settings_view')[0].style.display = 'block';
+                $('#settings_edit')[0].style.display = 'none';
+	    } else {
+                $('#settings_view')[0].style.display = 'none';
+                $('#settings_edit')[0].style.display = 'block';
+            }
           }); 
 
 	  $('#save').click(function(e) {
-	      alert('Save info to local storage');
+	      var signum = $('#signum')[0].value.toLowerCase();
               window.localStorage.setItem('Name', $('#name')[0].value);
               window.localStorage.setItem('Email',  $('#email')[0].value);
               window.localStorage.setItem('Phone',  $('#phone')[0].value);
-              window.localStorage.setItem('Signum',  $('#signum')[0].value);
+              window.localStorage.setItem('Signum',  signum);
               window.localStorage.setItem('EmployeeID',  $('#empid')[0].value);
               window.localStorage.setItem('Role',  $('#role')[0].value);
-	  })
+	      alert('Updated');
+	  });
+	  $('#take_pic').click(function(e) {
+		  capturePhotoEdit();
+	  });
+	  $('#edit').click(function(e) {
+		  edit();
+	  });
+
 	</script>
     </body>
 </html>

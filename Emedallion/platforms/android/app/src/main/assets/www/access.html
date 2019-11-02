@@ -33,8 +33,13 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/qrcode.min.js"></script>
 	<script>
+          var signum = window.localStorage.getItem('Signum');
+          if ( signum == null ) {
+	     alert('please update your user profile');
+	  }
+          
           var qrcode = new QRCode(document.getElementById("qrcode"), {
-             text: "EFGJKMP",
+             text: signum,
              colorDark : "#000000",
              colorLight : "#ffffff",
              correctLevel : QRCode.CorrectLevel.H
