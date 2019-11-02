@@ -38,32 +38,30 @@
         <script type="text/javascript" src="js/qrcode.min.js"></script>
 	<script>
 	  user_profile= {
-             'efgjkmp' : {
-		    'FirstName': 'Sirajudeen',
-                    'LastName': 'Yasin',
-		    'SIGNUM': 'EGIL21784',
-		    'Email': 'sirajudeen@ericsson.com',
-		    'Role': 'Solution Architect',
-		    'Unit': 'Cloud NFVi',
-		    'Phone' : '+14694033848',
-	     }
+		    'Name': window.localStorage.getItem('Name'),
+		    'Email': window.localStorage.getItem('Email'),
+		    'Phone' : window.localStorage.getItem('Phone'),
+		    'SIGNUM': window.localStorage.getItem('Signum'),
+		    'EmployeeId' : window.localStorage.getItem('empid'),
+		    'Role': window.localStorage.getItem('Role'),
 	  }
-          var userInfo = user_profile['efgjkmp']['FirstName'] + ' ' + user_profile['efgjkmp']['LastName'] + "\n" +
-	                 user_profile['efgjkmp']['SIGNUM'] + "\n" +
-	                 user_profile['efgjkmp']['Role'] + "\n" +
-	                 user_profile['efgjkmp']['Email'] + "\n" +
-	                 user_profile['efgjkmp']['Phone'];
+          var userInfo = user_profile['Name'] + "\n" +
+	                 user_profile['Email'] + "\n" +
+	                 user_profile['SIGNUM'] + "\n" +
+	                 user_profile['EmployeeId'] + "\n" +
+	                 user_profile['Role'] + "\n" +
+	                 user_profile['Phone'];
           var qrcode = new QRCode(document.getElementById("qrcode"), {
              text: userInfo,
-             colorDark : "#000000",
+             colorDark : "#4503fc",
              colorLight : "#ffffff",
              correctLevel : QRCode.CorrectLevel.H
           });
 
-          $('#usr_name').html(user_profile['efgjkmp']['FirstName'] + ' ' + user_profile['efgjkmp']['LastName'])
-          $('#role').html(user_profile['efgjkmp']['Role'] )
-          $('#email').html(user_profile['efgjkmp']['Email'] )
-          $('#contact').html(user_profile['efgjkmp']['Phone'])
+          $('#usr_name').html(user_profile['Name']);
+          $('#role').html(user_profile['Role'] );
+          $('#email').html(user_profile['Email'] );
+          $('#contact').html(user_profile['Phone']);
 
 	</script>
     </body>

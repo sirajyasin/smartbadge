@@ -92,7 +92,8 @@
         <script type="text/javascript" src="cordova.js"></
         <script type="text/javascript" src="js/index.js"></script>
 	<script>
-	  /*$(window).load(function(){        
+	  $(document).ready(function(){        
+	    console.log(window.localStorage)
             var signum = window.localStorage.getItem('Signum');
             if ( signum != null ) {
    	       $('#name')[0].value = window.localStorage.getItem('Name');
@@ -102,7 +103,7 @@
    	       $('#role')[0].value = window.localStorage.getItem('Role');
    	       $('#empid')[0].value = window.localStorage.getItem('EmployeeID');
 	    }
-          });*/ 
+          }); 
 
 	  $('#save').click(function(e) {
 	      alert('Save info to local storage');
@@ -112,7 +113,6 @@
               window.localStorage.setItem('Signum',  $('#signum')[0].value);
               window.localStorage.setItem('EmployeeID',  $('#empid')[0].value);
               window.localStorage.setItem('Role',  $('#role')[0].value);
-	      e.preventDefault();
 	  })
 	</script>
     </body>

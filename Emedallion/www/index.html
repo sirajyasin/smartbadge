@@ -45,12 +45,14 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
 	<script>
-	   var storage = window.localStorage;
-           var signum = storage.getItem('Signum');
-           if(signum == null) {
-               alert('Please update your details in User Profile');
-	       window.location = "settings.html"
-	   }
+          $(document).ready(function(){
+	      var storage = window.localStorage;
+              var signum = storage.getItem('Signum');
+              if(signum == null) {
+                  alert('Please update your details in User Profile');
+	          //window.location = "settings.html";
+	      }
+	  });
  
 
 	</script>
