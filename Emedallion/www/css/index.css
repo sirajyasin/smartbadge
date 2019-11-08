@@ -241,3 +241,30 @@ a {
  font-size: 1.3em;
  margin: 0.3em;
 }
+
+#tr_amnt_div {
+  margin: 04.em;
+  padding: 0.4em;
+}
+
+.fleft {
+  float: left;
+}
+
+#tr_amnt_div label {
+	text-align: center;
+}
+
+.usr {
+    width: 8em;
+    height: 2em;
+    padding: 4em;
+    margin: 0.3em;
+    background-color: #acacac;
+    border-radius: 4em;
+    cursor: pointer;
+}
+
+.highlight {
+    background-color: lightblue !important;
+}

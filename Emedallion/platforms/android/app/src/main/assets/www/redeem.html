@@ -14,7 +14,7 @@
 	</div>
         <div class="container">
 	  <div class="smenu col-lg-12 btn btn-success"><a class="menu" href="ebucks.html"><i class="fa fa-fw fa-user"></i>  e-Bucks</a></div>
-	  <div class="alert alert-success">Your Gift Card Balance:  $<span id='gift_amnt' class="badge badge-success">65</span> </div>
+	  <div class="alert alert-success">Your Gift Card Balance:  $<span id='gift_amnt' class="badge badge-success">0</span> </div>
 	  <div id='redeem_box'>
             <form id='apply_code'>
              <div class="row">
@@ -50,6 +50,27 @@
                $('#gift_amnt').html('115')
                event.preventDefault();
 	       $('#claim_code').value = '';
+           })
+
+          var signum = window.localStorage.getItem('Signum');
+ 
+           if ( signum ==  null ) {
+		signum = 'efgjkmp';
+	   }
+           $(document).ready(function(e) {
+                $.ajax({
+                  url: "https://api.myjson.com/bins/kxd08",
+                  type: "GET",
+                  contentType: "application/json; charset=utf-8",
+                  dataType: "json",
+                  success: function (data, textStatus, jqXHR) {
+		      gift_balance = data[signum]['balance'];
+		      console.log(data); 
+		      console.log(data[signum]); 
+		      console.log(data[signum]['balance']); 
+                      $("#gift_amnt").html(gift_balance);
+                  }
+                });
            })
 	</script>
         <script type="text/javascript" src="js/scan_giftcode.js"></script>

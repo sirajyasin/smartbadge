@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <meta name="msapplication-tap-highlight" content="no">
+	<meta http-equiv="refresh" content="300"/>
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/all.css">
+        <title>E-Madallion</title>
+    </head>
+    <body>
+	<div class="page_header">
+            <div class="head col-lg-12 btn btn-primary"><a class="menu home" href="index.html"><i class="fa fa-fw fa-home"></i></a>   E-Medallion</div>
+	</div>
+        <div class="container">
+	  <div class="smenu col-lg-12 btn btn-success"><a class="menu" href="ebucks.html"><i class="fa fa-fw fa-user"></i>  e-Bucks</a></div>
+  	  <div class="alert alert-info col-lg-12">Transfer e-Bucks to Your Friends</div>
+	  <div class="alert alert-success">Your Gift Card Balance:  $<span id='gift_amnt' class="badge badge-success">0</span> </div>
+	  <div class="row">
+            <div class="col" id="tr_amnt_div">
+		  <input id='trans_amnt' type="text" class="fleft col col-lg-3 form-control" placeholder="Transfer Amount">
+            </div>
+	  </div>
+            <div class="col select_user_div">
+	       <a id='userList' class="btn btn-info col-lg-12">Select User</a>
+            </div>
+	  <div class="row usr_list">
+		  <div id='efgjkmp' class='usr'><i class="fa fa-fw fa-user"></i>Siraj</a></div>
+		  <div id='ebalkan' class='usr'><i class="fa fa-fw fa-user"></i>Balaji</a></div>
+		  <div id='eamaral' class='usr'><i class="fa fa-fw fa-user"></i>Amar</a></div>
+		  <div id='dinesh' class='usr'><i class="fa fa-fw fa-user"></i>Dinesh</a></div>
+		  <div id='abdus' class='usr'><i class="fa fa-fw fa-user"></i>Abdus</a></div>
+          </div>
+
+	  <div class="row">
+           <div class="col">
+	           <button id='send' class="col col-lg-12 btn btn-danger">Send</button>
+  	           <div id='trans_status' class="alert alert-success col-lg-12"></div>
+           </div>
+	  </div>
+	  <div class="smenu col-lg-12 btn btn-success"><a class="menu" href="index.html"><i class="fa fa-fw fa-home"></i>  Home</a></div>
+        </div>
+        <!--<div class="page_footer">
+          <footer class="footer site_color1">
+            <div class="container">
+              <span class="text-muted">Ericsson Proprietary (Restricted access).</span>
+            </div>
+          </footer>
+	</div>-->
+
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/qrcode.min.js"></script>
+        <script>
+          var signum = window.localStorage.getItem('Signum');
+ 
+           if ( signum ==  null ) {
+		signum = 'efgjkmp';
+	   }
+           ebucks_json = {}
+           $(document).ready(function(e) {
+                $.ajax({
+                  url: "https://api.myjson.com/bins/kxd08",
+                  type: "GET",
+                  contentType: "application/json; charset=utf-8",
+                  dataType: "json",
+                  success: function (data, textStatus, jqXHR) {
+		      ebucks_json = data;
+		      gift_balance = data[signum]['balance'];
+                      $("#gift_amnt").html(gift_balance);
+                  }
+                });
+           })
+
+           $('.usr').click(function() {
+		   if ($(this).attr('id') != signum) {
+		     $(this).toggleClass('highlight');
+	           }
+
+           });
+           $('#send').click(function() {
+	      trans_amnt = $('#trans_amnt')[0].value;
+              users_to_transfer = []
+              $('.highlight').each(function() {
+		    user = $(this).attr('id');
+                    ebucks_json[user]['balance'] = ebucks_json[user]['balance'] + parseInt(trans_amnt);
+                    ebucks_json[signum]['balance'] = ebucks_json[signum]['balance'] - parseInt(trans_amnt);
+		    if(ebucks_json[user]['notifications'] && ebucks_json[user]['notifications'].length > 0) {
+                        ebucks_json[user]['notifications'].push("You have received " + trans_amnt + " from " + signum);
+	            } else {
+                        ebucks_json[user]['notifications'] = ["You have received " + trans_amnt + " e-bucks from " + signum];
+	            }
+                    $("#gift_amnt").html(ebucks_json[signum]['balance']);
+	      })
+
+              $.ajax({
+                  url: "https://api.myjson.com/bins/kxd08",
+                  type: "PUT",
+                  contentType: "application/json; charset=utf-8",
+		  data: JSON.stringify(ebucks_json),
+                  dataType: "json",
+                  success: function (data, textStatus, jqXHR) {
+	              $('#trans_status').html('Transfer success!!!');		
+                  }
+                });
+
+           });
+	</script>
+        <script type="text/javascript" src="js/scan_giftcode.js"></script>
+    </body>
+</html>
