@@ -26,11 +26,20 @@
 	</div>
 
 	<div class="form-group">
-		<label for="name" class="cols-lg-8 control-label">Your Name</label>
+		<label for="fname" class="cols-lg-8 control-label">First Name</label>
 		<div class="cols-sm-10">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-				<input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" required>
+				<input type="text" class="form-control" name="fname" id="fname" placeholder="Enter your First Name" required>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="lname" class="cols-lg-8 control-label">Last Name</label>
+		<div class="cols-sm-10">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+				<input type="text" class="form-control" name="lname" id="lname" placeholder="Enter your Last Name" required>
 			</div>
 		</div>
 	</div>
@@ -91,7 +100,8 @@
 <div id='settings_view'>
      <button id='profile_header' class="col-lg-12 btn btn-default"><img class="logo" src="img/ecn_logo.png" /></button>
      <div class='photo'><img id="profile_pic" class='photo' src="" /></div>
-     <div id='name_view'></div>
+     <div id='fname_view'></div>
+     <div id='lname_view'></div>
      <div id='empid_view'></div>
      <div id='signum_view'></div>
      <div id='role_view'></div>
@@ -119,13 +129,15 @@
 	  $(document).ready(function(){        
             var signum = window.localStorage.getItem('Signum');
             if ( signum != null ) {
-   	       $('#name')[0].value = window.localStorage.getItem('Name');
+   	       $('#fname')[0].value = window.localStorage.getItem('FirstName');
+   	       $('#lname')[0].value = window.localStorage.getItem('LastName');
    	       $('#email')[0].value = window.localStorage.getItem('Email');
    	       $('#phone')[0].value = window.localStorage.getItem('Phone');
    	       $('#signum')[0].value = window.localStorage.getItem('Signum');
    	       $('#role')[0].value = window.localStorage.getItem('Role');
    	       $('#empid')[0].value = window.localStorage.getItem('EmployeeID');
-   	       $('#name_view').html(window.localStorage.getItem('Name'));
+   	       $('#fname_view').html(window.localStorage.getItem('FirstName'));
+   	       $('#lname_view').html(window.localStorage.getItem('LastName'));
    	       $('#empid_view').html(window.localStorage.getItem('EmployeeID'));
    	       $('#signum_view').html(window.localStorage.getItem('Signum'));
    	       $('#role_view').html(window.localStorage.getItem('Role'));
@@ -150,7 +162,8 @@
 
 	  $('#save').click(function(e) {
 	      var signum = $('#signum')[0].value.toLowerCase();
-              window.localStorage.setItem('Name', $('#name')[0].value);
+              window.localStorage.setItem('FirstName', $('#fname')[0].value);
+              window.localStorage.setItem('LastName', $('#lname')[0].value);
               window.localStorage.setItem('Email',  $('#email')[0].value);
               window.localStorage.setItem('Phone',  $('#phone')[0].value);
               window.localStorage.setItem('Signum',  signum);

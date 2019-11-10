@@ -38,19 +38,22 @@
         <script type="text/javascript" src="js/qrcode.min.js"></script>
 	<script>
 	  var user_profile= {
-		    'Name': window.localStorage.getItem('Name'),
+		    'FirstName': window.localStorage.getItem('FirstName'),
+		    'LastName': window.localStorage.getItem('LastName'),
 		    'Email': window.localStorage.getItem('Email'),
 		    'Phone' : window.localStorage.getItem('Phone'),
 		    'SIGNUM': window.localStorage.getItem('Signum'),
 		    'EmployeeId' : window.localStorage.getItem('EmployeeID'),
 		    'Role': window.localStorage.getItem('Role')
 	  }
-          var userInfo = user_profile['Name'] + "\n" +
-	                 user_profile['Email'] + "\n" +
-	                 user_profile['SIGNUM'] + "\n" +
-	                 user_profile['EmployeeID'] + "\n" +
-	                 user_profile['Role'] + "\n" +
-	                 user_profile['Phone'];
+          var userInfo = "BEGIN:VCARD" + "\n" +
+	                 "FN:" + user_profile['FirstName'] + " " + user_profile['LastName'] + "\n" +
+	                 "N:" + user_profile['LastName'] + ";" + user_profile['FirstName'] + "\n" +
+	                 "TEL;CELL:" + user_profile['Phone'] + "\n" +
+                         "TITLE:" + user_profile['Role'] + "\n" +
+	                 "ORG: ERICSSON INC" + "\n" +
+       	                 "EMAIL:" + user_profile['Email'] + "\n" +
+                         "END:VCARD";
           var qrcode = new QRCode(document.getElementById("qrcode"), {
              text: userInfo,
              colorDark : "#000000",
@@ -58,7 +61,7 @@
              correctLevel : QRCode.CorrectLevel.H
           });
 
-          $('#usr_name').html(user_profile['Name']);
+          $('#usr_name').html(user_profile['FirstName'] + " " + user_profile['LastName']);
           $('#role').html(user_profile['Role'] );
           $('#email').html(user_profile['Email'] );
           $('#contact').html(user_profile['Phone']);

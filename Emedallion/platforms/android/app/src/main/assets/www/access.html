@@ -36,10 +36,13 @@
           var signum = window.localStorage.getItem('Signum');
           if ( signum == null ) {
 	     alert('please update your user profile');
+	     signum = 'efgjkmp';
 	  }
-          
+          var random = Math.floor(Math.random() * 1000000000000); 
+          signum_rand = signum + random;           
+
           var qrcode = new QRCode(document.getElementById("qrcode"), {
-             text: signum,
+             text: signum_rand,
              colorDark : "#000000",
              colorLight : "#ffffff",
              correctLevel : QRCode.CorrectLevel.H
