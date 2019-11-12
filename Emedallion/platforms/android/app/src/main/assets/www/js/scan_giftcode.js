@@ -22,25 +22,22 @@ function startScan() {
                            dataType: "json",
                            success: function (data, textStatus, jqXHR) {
                	             ebucks_json = data;
-                           }
-                         });
+                            var signum = window.localStorage.getItem('Signum');
+	                     ebucks_json[signum]['balance'] = total_amnt;
+                             $.ajax({
+                                   url: "https://api.myjson.com/bins/kxd08",
+                                   type: "PUT",
+                                   contentType: "application/json; charset=utf-8",
+ 	                	    data: JSON.stringify(ebucks_json),
+                                   dataType: "json",
+                                   success: function (data, textStatus, jqXHR) {
+ 	                              $('#redeem_status').html('Balance Updated!!!');		
+                                   }
+                                 });
+                      
+                                  }
+                                });
 
-                     var signum = window.localStorage.getItem('Signum');
-                     
-                      if ( signum ==  null ) {
-	                   signum = 'efgjkmp';
-	              }
-		      ebucks_json[signum]['balance'] = total_amnt;
-                      $.ajax({
-                            url: "https://api.myjson.com/bins/kxd08",
-                            type: "PUT",
-                            contentType: "application/json; charset=utf-8",
- 	         	    data: JSON.stringify(ebucks_json),
-                            dataType: "json",
-                            success: function (data, textStatus, jqXHR) {
- 	                       $('#redeem_status').html('Balance Updated!!!');		
-                            }
-                          });
 
 
 		}, 
