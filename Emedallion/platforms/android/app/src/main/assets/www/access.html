@@ -36,11 +36,28 @@
           var signum = window.localStorage.getItem('Signum');
           if ( signum == null ) {
 	     alert('please update your user profile');
-	     signum = 'efgjkmp';
 	  }
+
+          signum = 'efgjkmp';
+          user_info = {}; 
+          $.ajax({
+             url: "https://api.myjson.com/bins/5zbki",
+             type: "GET",
+             contentType: "application/json; charset=utf-8",
+             dataType: "json",
+             async: false,
+             success: function (data, textStatus, jqXHR) {
+		 user_info =  data;
+                 users = data['valid_users'].split();
+                 if ( !(signum in users) ) {
+                     alert('User not found in database.');
+		     window.location.href = "index.html";
+	         }
+             }
+          });
           var random = Math.floor(Math.random() * 1000000000000); 
           signum_rand = signum + random;           
-
+          
           var qrcode = new QRCode(document.getElementById("qrcode"), {
              text: signum_rand,
              colorDark : "#000000",
@@ -48,6 +65,17 @@
              correctLevel : QRCode.CorrectLevel.H
           });
 
+          var now = new Date();
+          user_info['rand_num'][signum] = { 'rand' : random, 'expiry': new Date(now.getTime() + 45 * 1000) };
+
+          $.ajax({
+                url: "https://api.myjson.com/bins/5zbki",
+                type: "PUT",
+                contentType: "application/json; charset=utf-8",
+ 	         data: JSON.stringify(user_info),
+                dataType: "json"
+          });
+          
           function startTimer(duration) {
             var timer = duration, minutes, seconds;
             setInterval(function () {
